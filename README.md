@@ -1,5 +1,10 @@
 # kcd-shanghai-2024
 
+Alternative titles:
+
+- Running LLMs on Kubernetes with Virtual Kubelet + Containerd + ShimV2 + runm
+- Beyond container, orchestrate LLMs with Kubernetes on macOS
+
 ## Background
 
 With over 100,000 Docker Pulls, [Ollama](https://github.com/ollama/ollama) has become a popular choice for building and running language models on the local machine.
