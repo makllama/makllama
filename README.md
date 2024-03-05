@@ -5,6 +5,16 @@ Alternative titles:
 - Running LLMs on Kubernetes with Virtual Kubelet + Containerd + ShimV2 + runm
 - Beyond container, orchestrate LLMs with Kubernetes on macOS
 
+## Description
+
+With the popularity of generative AI, the demand for running large language models (LLMs) on Kubernetes is increasing. Apple Silicon M-series chips (with unified memory) are proven to be a good choice for running LLMs (https://github.com/ggerganov/llama.cpp/discussions/4167). However, the current Kubernetes ecosystem is designed for running containers on Linux. In this talk, we will introduce our work on running LLMs on Kubernetes with macOS nodes. We will show you how to use Virtual Kubelet + Containerd + ShimV2 + runm (built on top of llama.cpp: https://github.com/ggerganov/llama.cpp) to run open-source foundation models like gemma, llama2 and mistral on Kubernetes. We will also explain our motivation and the challenges we faced during the development. We hope this talk will inspire the community to build a more inclusive Kubernetes ecosystem that supports running LLMs on macOS.
+
+## Benefits to the Ecosystem
+
+- Enable running LLMs on Kubernetes with macOS nodes
+- Provide an alternative solution for running LLMs on Kubernetes
+- Inspire the community to build a more inclusive Kubernetes ecosystem that supports running LLMs on macOS
+
 ## Background
 
 With over 100,000 Docker Pulls, [Ollama](https://github.com/ollama/ollama) has become a popular choice for building and running language models on the local machine.
@@ -66,3 +76,19 @@ NAME              READY   STATUS    RESTARTS   AGE
 tinyllama-11111   1/1     Running   0          41m
 tinyllama-11112   1/1     Running   0          41m
 ```
+
+## References
+
+llama 2 7B data:
+
+| GPU                      | FP16  |    Q8 |    Q4 | price |
+| ------------------------ | :---: | ----: | ----: | ----: |
+| RTX 4060 Ti 16GB         | 19.10 | 33.86 | 57.87 |  4599 |
+| RTX 4000                 | 23.93 | 42.43 | 73.38 |  7499 |
+| RTX 3090                 |       |       | 87.34 |  7899 |
+| M1 Ultra 48 core         | 33.92 | 55.69 | 74.93 |       |
+| M1 Ultra 64 core         | 37.01 | 59.87 | 83.73 |       |
+| M2 Ultra 60 core 128G 1T | 39.86 | 62.14 | 88.64 | 38999 |
+| M2 Ultra 76 core 128G 1T | 41.02 | 66.64 | 94.27 | 46499 |
+
+https://github.com/ggerganov/llama.cpp/discussions/4167
