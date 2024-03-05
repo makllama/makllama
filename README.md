@@ -7,7 +7,17 @@ Alternative titles:
 
 ## Description
 
-With the popularity of generative AI, the demand for running large language models (LLMs) on Kubernetes is increasing. Apple Silicon M-series chips (with unified memory) are proven to be a good choice for running LLMs (https://github.com/ggerganov/llama.cpp/discussions/4167). However, the current Kubernetes ecosystem is designed for running containers on Linux. In this talk, we will introduce our work on running LLMs on Kubernetes with macOS nodes. We will show you how to use Virtual Kubelet + Containerd + ShimV2 + runm (built on top of llama.cpp: https://github.com/ggerganov/llama.cpp) to run open-source foundation models like gemma, llama2 and mistral on Kubernetes. We will also explain our motivation and the challenges we faced during the development. We hope this talk will inspire the community to build a more inclusive Kubernetes ecosystem that supports running LLMs on macOS.
+With the growing popularity of generative AI, there is an increasing demand for large language models (LLMs)
+inference capabilities. Kubernetes, being the most popular orchestration platform, is a natural fit for these
+inference needs. Although GPUs are expensive and often in short supply, Apple Silicon M-series chips
+(with unified memory) have been proven to be an effective alternative for running LLMs
+(see ggerganov/llama.cpp performance discussion). However, the prevalent Kubernetes ecosystem is predominantly
+focused on Linux-based containers. In this presentation, we will showcase our efforts to facilitate LLMs inference
+on Kubernetes using macOS nodes. We will demonstrate how to employ Virtual Kubelet, Containerd, ShimV2, and runm
+(derived from llama.cpp: ggerganov/llama.cpp) for deploying open-source foundation models such as gemma, llama2,
+and mistral on Kubernetes. Additionally, we will discuss our motivation and the challenges encountered during our
+development journey. Our goal is to encourage the community to expand the Kubernetes ecosystem to inclusively
+support the execution of LLMs on macOS platforms.
 
 ## Benefits to the Ecosystem
 
