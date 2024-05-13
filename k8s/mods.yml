@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mods-deployment
+  labels:
+    app: mods
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mods
+  template:
+    metadata:
+      labels:
+        app: mods
+    spec:
+      nodeSelector:
+        kubernetes.io/role: "worker"
+      containers:
+        - name: mods
+          image: r0ckstar/mods:demo
+          imagePullPolicy: IfNotPresent
+          # XXX: Search "no command specified" in containerd
+          command: ["sleep", "infinity"]

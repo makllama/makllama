@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tinyllama-deployment
+  labels:
+    app: tinyllama
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tinyllama
+  template:
+    metadata:
+      labels:
+        app: tinyllama
+    spec:
+      nodeSelector:
+        kubernetes.io/role: agent
+      containers:
+        - name: tinyllama
+          image: registry.ollama.ai/library/tinyllama:latest
+          imagePullPolicy: IfNotPresent
+          # XXX: Search "no command specified" in containerd
+          command: ["/usr/local/bin/dummy"]
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tinyllama-service
+  labels:
+    app: tinyllama
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    app: tinyllama

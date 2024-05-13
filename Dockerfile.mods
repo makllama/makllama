@@ -1,0 +1,8 @@
+FROM ubuntu
+
+RUN apt update -y && apt install -y curl gpg
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -fsSL https://repo.charm.sh/apt/gpg.key | gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+RUN echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | tee /etc/apt/sources.list.d/charm.list
+RUN apt update -y && apt install -y mods vim
+COPY mods.yml /root/.config/mods/mods.yml
