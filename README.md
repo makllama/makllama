@@ -33,9 +33,9 @@ Running and orchestrating large language models (LLMs) on Kubernetes with macOS 
 
 To run and orchestrate LLMs on Kubernetes with macOS nodes, we need the following components:
 
-- [Containerd](https://github.com/containerd/containerd): For pulling and running ollama images (the forked version will be available soon).
-- [Virtual Kubelet](https://github.com/virtual-kubelet/cri): For running `pods` on macOS nodes (the forked version will be available soon).
-- runm: A lightweight runtime derived from [llama.cpp](https://github.com/ggerganov/llama.cpp) for running LLMs on macOS nodes (source code will be available soon).
+- [Virtual Kubelet](https://github.com/makllama/cri): For running `pods` on macOS nodes (forked from [virtual-kubelet/cri](https://github.com/virtual-kubelet/cri)).
+- Containerd: For pulling and running ollama images (forked from [containerd/containerd](https://github.com/containerd/containerd)).
+- Runm: A lightweight runtime derived from [llama.cpp](https://github.com/ggerganov/llama.cpp) for running LLMs on macOS nodes (source code will be available soon).
 - Bronze Willow: CNI Plugin for macOS (source code will be available soon).
 
 This project is inspired by [llama.cpp](https://github.com/ggerganov/llama.cpp), [ollama](https://github.com/ollama/ollama) and [kind](https://kind.sigs.k8s.io/).
